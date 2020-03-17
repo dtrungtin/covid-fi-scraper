@@ -39,7 +39,6 @@ Apify.main(async () => {
             if (matchUpadatedAt && matchUpadatedAt.length > 4) {
                 const currentYear = moment().tz('Europe/Helsinki').year();
                 const dateTimeStr = `${currentYear}.${matchUpadatedAt[2]}.${matchUpadatedAt[1]} ${matchUpadatedAt[3]}:${matchUpadatedAt[4]}`;
-                log.info(dateTimeStr);
                 const dateTime = moment.tz(dateTimeStr, "YYYY.MMMM.DD H:mm", 'Europe/Helsinki');
                
                 data.lastUpdatedAtSource = dateTime.toISOString();
@@ -52,8 +51,9 @@ Apify.main(async () => {
                 const el = $(h2List[index]);
                 if (el.text().includes('Finland')) {
                     const confirmedCasesText = el.next().find('li:first-child').text();
+                    log.info(confirmedCasesText);
                     const parts = confirmedCasesText.match(/\s+(\d+)\s+/);
-                    data.confirmedCases = parts[1];
+                    data.confirmedCases = parseInt(parts[1]);
                 }
             }
 
