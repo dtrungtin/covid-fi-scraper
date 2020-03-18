@@ -51,9 +51,12 @@ Apify.main(async () => {
                 const el = $(h2List[index]);
                 if (el.text().includes('Finland')) {
                     const confirmedCasesText = el.next().find('li:first-child').text();
+                    log.info(confirmedCasesText);
                     const parts = confirmedCasesText.match(/\s+(\d+)\s+/);
-                    data.confirmedCases = parseInt(parts[1]);
-                    break;
+                    if (parts) {
+                        data.confirmedCases = parseInt(parts[1]);
+                        break;
+                    }
                 }
             }
 
