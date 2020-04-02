@@ -1,9 +1,9 @@
 {
-	"name": "switzerland-scraper",
+	"name": "finland-scraper",
 	"version": "0.0.1",
 	"description": "This is a boilerplate of an Apify actor.",
 	"dependencies": {
-		"apify": "^0.20.0",
+		"apify": "^0.20.2",
 		"lodash": "^4.17.15",
 		"moment-timezone": "^0.5.28"
 	},
