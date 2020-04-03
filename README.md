@@ -1,5 +1,5 @@
 # Coronavirus stats in the Finland from official source
-Gets an actual number of confirmed cases by COVID-19 in the Findland from https://experience.arcgis.com/experience/d40b2aaf08be4b9c8ec38de30b714f26.
+Gets an actual number of tested cases by COVID-19 in the Findland from https://experience.arcgis.com/experience/d40b2aaf08be4b9c8ec38de30b714f26.
 
 Latest data are available at this URL: https://api.apify.com/v2/key-value-stores/jEFt5tgCTMfjJpLD3/records/LATEST?disableRedirect=true.
 

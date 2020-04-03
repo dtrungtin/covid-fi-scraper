@@ -59,13 +59,13 @@ Apify.main(async () => {
                 throw new Error('lastUpdatedAtSource not found');
             }
 
-            const confirmedCasesText = await frame.evaluate(() => {
+            const testedCasesText = await frame.evaluate(() => {
                 return $('.dock-element:nth-child(2)').text();
             });
 
-            const parts = confirmedCasesText.match(/[\d,]+/);
+            const parts = testedCasesText.match(/[\d,]+/);
             if (parts) {
-                data.confirmedCases = parseInt(parts[0].replace(/,/, ''));
+                data.testedCases = parseInt(parts[0].replace(/,/, ''));
             }
 
             // Compare and save to history
