@@ -60,10 +60,22 @@ Apify.main(async () => {
             //     }
             // }
 
-            const confirmedCasesText = $('.journal-content-article').eq(0).find('ul li').eq(1).text();
-            const parts = confirmedCasesText.match(/\s+(\d+\s*\d+)\s+/);
+            const testedText = $('.journal-content-article').eq(0).find('ul li').eq(0).text();
+            let parts = testedText.match(/\s+(\d+\s*\d+)\s+/);
             if (parts) {
-                data.confirmedCases = parseInt(parts[1].replace(/\s/, ''));
+                data.tested = parseInt(parts[1].replace(/\s/, ''));
+            }
+
+            const infectedText = $('.journal-content-article').eq(0).find('ul li').eq(1).text();
+            parts = infectedText.match(/\s+(\d+\s*\d+)\s+/);
+            if (parts) {
+                data.infected = parseInt(parts[1].replace(/\s/, ''));
+            }
+
+            const deathsText = $('.journal-content-article').eq(0).find('ul li').eq(3).text();
+            parts = deathsText.match(/\s+(\d+\s*\d+)[.\s]+/);
+            if (parts) {
+                data.deaths = parseInt(parts[1].replace(/\s/, ''));
             }
 
             // Compare and save to history
